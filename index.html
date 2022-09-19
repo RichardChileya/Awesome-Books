@@ -7,25 +7,25 @@
   <link rel="stylesheet" href="style.css">
   <title>Awesome Books</title>
 </head>
-<body>
-
+<body onload="ShowDataOnload()">
   <div class="container">
     <!-- APP TITLE -->
     <h1 class="top-heading"> My Book List</h1>
     <!-- Library Table  -->
-    <table class="table">
+    <table class="table1" id="table1">
       <thead>
-        <tr>
-          <th class="bookID">BookID</th>
-          <th>Title</th>
-          <th>Author</th>
+        <tr class="tablerow1">
+          <th id="bookID1">BookID</th>
+          <th id="colTitle1">Title</th>
+          <th id="colAuthor1">Author</th>
         </tr>
       </thead>
       <tbody id="book-list">
-
       </tbody>
     </table>
-
+    <table class="table" id="table">
+  <!-- here dynamic element will create -->
+    </table>
     <form id="book-form" onsubmit="return BookStoring(document.getElementById('title').value , document.getElementById('author').value)">
       <div class="form-group">
         <label for="title">Title</label>
@@ -37,7 +37,6 @@
       </div>
       <input type="submit" value="Add Button" class="btn" />
     </form>
-
   </div>
 
 
