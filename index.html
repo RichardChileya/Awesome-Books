@@ -1,45 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Awesome Books</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Awesome Books</title>
 </head>
-<body onload="ShowDataOnload()">
-  <div class="container">
-    <!-- APP TITLE -->
-    <h1 class="top-heading"> My Book List</h1>
-    <!-- Library Table  -->
-    <table class="table1" id="table1">
-      <thead>
-        <tr class="tablerow1">
-          <th id="bookID1">BookID</th>
-          <th id="colTitle1">Title</th>
-          <th id="colAuthor1">Author</th>
+
+<body>
+    <h1>My Awesome Books</h1>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th></th>
         </tr>
-      </thead>
-      <tbody id="book-list">
-      </tbody>
+        <tbody id="collection">
+        </tbody>
     </table>
-    <table class="table" id="table">
-  <!-- here dynamic element will create -->
-    </table>
-    <form id="book-form" onsubmit="return BookStoring(document.getElementById('title').value , document.getElementById('author').value)">
-      <div class="form-group">
-        <label for="title">Title</label>
-        <input type="text" id="title" class="form-control" placeholder="title">
-      </div>
-      <div class="form-group">
-        <label for="author">Author</label>
-        <input type="text" id="author" class="form-control" placeholder="author">
-      </div>
-      <input type="submit" value="Add Button" class="btn" />
+    <br>
+    <form id="book-form" action="#">
+        <input id="title" type="text" placeholder="Title"> <br><br>
+        <input id="author" type="text" placeholder="Author"><br><br>
+        <input id="add-btn" type="submit" value="Add Books">
     </form>
-  </div>
 
+<script defer src="script.js"></script>
 
-<script src="script.js"></script>  
 </body>
+
 </html>
