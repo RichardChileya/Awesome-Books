@@ -1,31 +1,47 @@
-const tableArea = document.getElementById('table');
-function BookStoring(title, author) {
-  var bookID = Math.floor(Math.random() * 100);
-  var getOldData =JSON.parse(window.localStorage.getItem('AllBooks_Data'));
-  var bookFields = { StoredID: bookID, StoredTitle: title, StoredAuthor: author};
-    if(getOldData === null){ getOldData = [];}
-      window.localStorage.setItem('LastBook_Data',JSON.stringify(bookFields));
-      getOldData.push(bookFields);
-      window.localStorage.setItem('AllBooks_Data',JSON.stringify(getOldData));
-  return true;
+const title = document.querySelector('#title');
+const author = document.querySelector('#author');
+const form = document.querySelector('#book-form');
+const collection = document.querySelector('#collection');
+let book;
+let bookList = JSON.parse(localStorage.getItem('bookList')) || [];
+function addBook() {
+  book = {
+    title: title.value,
+    author: author.value,
+    id: Math.floor(Math.random() * 100000),
+  };
+  bookList.push(book);
+  localStorage.setItem('bookList', JSON.stringify(bookList));
 }
-var bookFieldsGetting = JSON.parse(window.localStorage.getItem('AllBooks_Data'));
+function removeBook(id) {
+  bookList = bookList.filter((books) => books.id !== id);
+  localStorage.setItem('bookList', JSON.stringify(bookList));
+}
+function populate(book) {
+  const row = document.createElement('tr');
+  const bookTitle = document.createElement('td');
+  const bookAuthor = document.createElement('td');
+  const removeBtn = document.createElement('button');
+  bookTitle.innerText = book.title;
+  bookAuthor.innerText = book.author;
+  removeBtn.innerText = 'delete';
+  row.append(bookTitle, bookAuthor, removeBtn);
+  collection.append(row);
+  removeBtn.addEventListener('click', () => {
+    removeBtn.parentElement.remove();
+    removeBook(book.id);
+  });
+}
+bookList.forEach(populate);
 
-function loadElements(i) {
-  const tablerow = document.createElement('tr');
-  tablerow.classname = 'tablerow';
-  tablerow.innerHTML = `<thead>
-  <tr>
-          <th><input type="button" id="remove-btn" class="form-control" value="Remove"></th>
-          <th>${bookFieldsGetting[i].StoredTitle}</th>
-          <th>${bookFieldsGetting[i].StoredAuthor}</th>
-          
-        </tr>
-  </thead>`;
-  tableArea.appendChild(tablerow);
-}
-function ShowDataOnload() {
-  for (let i = 0; i <= bookFieldsGetting.length; i += 1) {
-    loadElements(i);
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  if (title.value !== '' && author.value !== '') {
+    addBook();
+    populate(book);
+    form.reset();
+  } else {
+    // eslint-disable-next-line no-alert
+    alert('Please enter a title and author');
   }
-}
+});
