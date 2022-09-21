@@ -6,19 +6,19 @@ let book = [];
 let bookList = JSON.parse(localStorage.getItem('bookList')) || [];
 
 class bookClass {
-  constructor (id, title, author){
+  constructor(id, title, author) {
     this.title = title;
     this.author = author;
     this.id = id;
   }
 
-  addBook(){
-    book = {id: this.id, title: this.title, author: this.author };
+  addBook() {
+    book = { id: this.id, title: this.title, author: this.author };
     bookList.push(book);
     localStorage.setItem('bookList', JSON.stringify(bookList));
   }
 
-  removeBook(bid){
+  removeBook(bid) {
     bookList = bookList.filter((books) => books.id !== bid);
     localStorage.setItem('bookList', JSON.stringify(bookList));
   }
@@ -37,7 +37,7 @@ function populate(book) {
   collection.append(row);
   removeBtn.addEventListener('click', () => {
     removeBtn.parentElement.remove();
-    let objBookClass = new bookClass();
+    const objBookClass = new bookClass();
     objBookClass.removeBook(book.id);
   });
 }
@@ -46,8 +46,8 @@ bookList.forEach(populate);
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   if (titleNew.value !== '' && authorNew.value !== '') {
-    let bookId=Math.floor(Math.random() * 100000);
-    let objBookClass = new bookClass(bookId,titleNew.value,authorNew.value)
+    const bookId = Math.floor(Math.random() * 100000);
+    let objBookClass = new BookClass(bookId, titleNew.value, authorNew.value);
     objBookClass.addBook();
     populate(book);
     form.reset();
