@@ -63,7 +63,7 @@ const listButton = document.querySelector('#list-nav');
 const addButton = document.querySelector('#add-nav');
 const contactButton = document.querySelector('#contact-nav');
 
-listButton.addEventListener('click', () => {
+function homeSectionDisplay (){
   if (bookSection.style.display === 'none') {
     bookSection.style.display = 'flex';
     formSection.style.display = 'none';
@@ -72,6 +72,10 @@ listButton.addEventListener('click', () => {
     formSection.style.display = 'none';
     contactSection.style.display = 'none';
   }
+}
+
+listButton.addEventListener('click', () => {
+  homeSectionDisplay();
 });
 
 addButton.addEventListener('click', () => {
