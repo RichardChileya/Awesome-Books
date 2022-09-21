@@ -5,20 +5,9 @@
 }
 
 button {
-  float: right;
   justify-content: flex-end;
   padding: 3px;
   margin: 5px;
-}
-
-#add-btn {
-  text-align: center;
-  padding: 5px;
-}
-
-#book-form #add-btn {
-  float: right;
-  text-align: center;
 }
 
 h1 {
@@ -35,18 +24,68 @@ h1 {
 #author {
   border: 1px black solid;
   height: 30px;
+  width: 50%;
 }
 
-th,
 td {
   text-align: left;
+}
+
+tr {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
 }
 
 main {
   display: flex;
   flex-direction: column;
+
+  /* align-items: center;
+  text-align: center; */
+}
+
+#book-list {
+  margin-top: 40px;
+}
+
+#form-section {
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  margin-top: 40px;
+}
+
+#book-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+#add-btn {
   text-align: center;
+  padding: 5px;
+  align-self: center;
+}
+
+#contact {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.contact-h2 {
+  padding-bottom: 20px;
+}
+
+.lists {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
 }
 
 table {
@@ -54,4 +93,5 @@ table {
   border: 2px black solid;
   justify-content: center;
   padding: 5px;
+  margin: 30px;
 }
