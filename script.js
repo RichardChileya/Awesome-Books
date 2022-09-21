@@ -5,7 +5,7 @@ const collection = document.querySelector('#collection');
 let book = [];
 let bookList = JSON.parse(localStorage.getItem('bookList')) || [];
 
-class bookClass {
+class BookClass {
   constructor(id, title, author) {
     this.title = title;
     this.author = author;
@@ -18,11 +18,10 @@ class bookClass {
     localStorage.setItem('bookList', JSON.stringify(bookList));
   }
 
-  removeBook(bid) {
-    bookList = bookList.filter((books) => books.id !== bid);
+  removeBook() {
+    bookList = bookList.filter((books) => books.id !== this.id);
     localStorage.setItem('bookList', JSON.stringify(bookList));
   }
-
 }
 
 function populate(book) {
@@ -30,14 +29,14 @@ function populate(book) {
   const bookTitle = document.createElement('td');
   const bookAuthor = document.createElement('td');
   const removeBtn = document.createElement('button');
-  bookTitle.innerText = book.title;
-  bookAuthor.innerText = book.author;
+  bookTitle.innerText = `"${book.title}" by ${book.author}`;
+  // bookAuthor.innerText = book.author;
   removeBtn.innerText = 'delete';
   row.append(bookTitle, bookAuthor, removeBtn);
   collection.append(row);
   removeBtn.addEventListener('click', () => {
     removeBtn.parentElement.remove();
-    const objBookClass = new bookClass();
+    const objBookClass = new BookClass();
     objBookClass.removeBook(book.id);
   });
 }
@@ -47,7 +46,7 @@ form.addEventListener('submit', (e) => {
   e.preventDefault();
   if (titleNew.value !== '' && authorNew.value !== '') {
     const bookId = Math.floor(Math.random() * 100000);
-    let objBookClass = new bookClass(bookId, titleNew.value, authorNew.value);
+    const objBookClass = new BookClass(bookId, titleNew.value, authorNew.value);
     objBookClass.addBook();
     populate(book);
     form.reset();
