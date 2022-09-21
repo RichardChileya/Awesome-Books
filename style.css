@@ -52,7 +52,7 @@ main {
 }
 
 #form-section {
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   margin-top: 40px;
@@ -72,7 +72,7 @@ main {
 }
 
 #contact {
-  display: flex;
+  display: none;
   flex-direction: column;
   padding: 24px;
   align-items: center;

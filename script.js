@@ -64,8 +64,10 @@ const addButton = document.querySelector('#add-nav');
 const contactButton = document.querySelector('#contact-nav');
 
 listButton.addEventListener('click', () => {
-  if (formSection.style.display === 'none') {
+  if (bookSection.style.display === 'none') {
     bookSection.style.display = 'flex';
+    formSection.style.display = 'none';
+    contactSection.style.display = 'none';
   } else {
     formSection.style.display = 'none';
     contactSection.style.display = 'none';
@@ -73,16 +75,20 @@ listButton.addEventListener('click', () => {
 });
 
 addButton.addEventListener('click', () => {
-  if (bookSection.style.display === 'none') {
+  if (formSection.style.display === 'none') {
     formSection.style.display = 'flex';
+    bookSection.style.display = 'none';
+    contactSection.style.display = 'none';
   } else {
     bookSection.style.display = 'none';
     contactSection.style.display = 'none';
   }
 });
 contactButton.addEventListener('click', () => {
-  if (formSection.style.display === 'none') {
+  if (contactSection.style.display === 'none') {
     contactSection.style.display = 'flex';
+    formSection.style.display = 'none';
+    bookSection.style.display = 'none';
   } else {
     formSection.style.display = 'none';
     bookSection.style.display = 'none';
