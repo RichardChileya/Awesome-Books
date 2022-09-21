@@ -47,7 +47,7 @@ form.addEventListener('submit', (e) => {
   e.preventDefault();
   if (titleNew.value !== '' && authorNew.value !== '') {
     const bookId = Math.floor(Math.random() * 100000);
-    let objBookClass = new BookClass(bookId, titleNew.value, authorNew.value);
+    let objBookClass = new bookClass(bookId, titleNew.value, authorNew.value);
     objBookClass.addBook();
     populate(book);
     form.reset();
