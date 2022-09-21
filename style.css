@@ -1,16 +1,24 @@
 * {
   padding: 0;
   margin: 0;
+  font-family: 'Comic Sans', sans-serif;
 }
 
 button {
+  float: right;
+  justify-content: flex-end;
   padding: 3px;
   margin: 5px;
 }
 
-#add-btn,
-input {
-  margin: 5px;
+#add-btn {
+  text-align: center;
+  padding: 5px;
+}
+
+#book-form #add-btn {
+  float: right;
+  text-align: center;
 }
 
 h1 {
@@ -21,9 +29,19 @@ h1 {
 
 th,
 td {
-  padding-left: 10px;
+  text-align: left;
 }
 
-input {
-  padding-left: 10px;
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+table {
+  display: flex;
+  border: 2px black solid;
+  justify-content: center;
+  padding: 5px;
 }
