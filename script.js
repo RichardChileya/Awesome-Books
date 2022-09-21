@@ -63,7 +63,7 @@ const listButton = document.querySelector('#list-nav');
 const addButton = document.querySelector('#add-nav');
 const contactButton = document.querySelector('#contact-nav');
 
-function homeSectionDisplay (){
+function homeSectionDisplay() {
   if (bookSection.style.display === 'none') {
     bookSection.style.display = 'flex';
     formSection.style.display = 'none';
