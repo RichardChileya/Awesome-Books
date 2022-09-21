@@ -30,14 +30,13 @@ function populate(book) {
   const bookAuthor = document.createElement('td');
   const removeBtn = document.createElement('button');
   bookTitle.innerText = `"${book.title}" by ${book.author}`;
-  // bookAuthor.innerText = book.author;
   removeBtn.innerText = 'delete';
   row.append(bookTitle, bookAuthor, removeBtn);
   collection.append(row);
   removeBtn.addEventListener('click', () => {
     removeBtn.parentElement.remove();
-    const objBookClass = new BookClass();
-    objBookClass.removeBook(book.id);
+    const objBookClassRemove = new BookClass(book.id,book.title, book.author);
+    objBookClassRemove.removeBook();
   });
 }
 
@@ -51,7 +50,6 @@ form.addEventListener('submit', (e) => {
     populate(book);
     form.reset();
   } else {
-    // eslint-disable-next-line no-alert
     alert('Please enter a title and author');
   }
 });
