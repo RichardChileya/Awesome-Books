@@ -2,6 +2,7 @@ const title = document.querySelector('#title');
 const author = document.querySelector('#author');
 const form = document.querySelector('#book-form');
 const collection = document.querySelector('#collection');
+const error = document.querySelector('.error');
 let book;
 let bookList = JSON.parse(localStorage.getItem('bookList')) || [];
 function addBook() {
@@ -10,13 +11,16 @@ function addBook() {
     author: author.value,
     id: Math.floor(Math.random() * 100000),
   };
+
   bookList.push(book);
   localStorage.setItem('bookList', JSON.stringify(bookList));
 }
+
 function removeBook(id) {
   bookList = bookList.filter((books) => books.id !== id);
   localStorage.setItem('bookList', JSON.stringify(bookList));
 }
+
 function populate(book) {
   const row = document.createElement('tr');
   const bookTitle = document.createElement('td');
@@ -41,7 +45,6 @@ form.addEventListener('submit', (e) => {
     populate(book);
     form.reset();
   } else {
-    // eslint-disable-next-line no-alert
-    alert('Please enter a title and author');
+    error.innerHTML = 'Please fill the form';
   }
 });
