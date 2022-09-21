@@ -27,6 +27,16 @@ h1 {
   margin: 10px;
 }
 
+.input-header{
+  margin-bottom: 15px;
+}
+
+#title,
+#author {
+  border: 1px black solid;
+  height: 30px;
+}
+
 th,
 td {
   text-align: left;
