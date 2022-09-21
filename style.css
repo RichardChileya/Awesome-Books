@@ -90,8 +90,9 @@ main {
   gap: 5px;
 }
 
-table {
+#collection {
   display: flex;
+  flex-direction: column;
   border: 2px black solid;
   justify-content: center;
   padding: 5px;
