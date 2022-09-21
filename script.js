@@ -54,3 +54,37 @@ form.addEventListener('submit', (e) => {
     alert('Please enter a title and author');
   }
 });
+
+const bookSection = document.querySelector('#book-list');
+const formSection = document.querySelector('#form-section');
+const contactSection = document.querySelector('#contact');
+
+const listButton = document.querySelector('#list-nav');
+const addButton = document.querySelector('#add-nav');
+const contactButton = document.querySelector('#contact-nav');
+
+listButton.addEventListener('click', () => {
+  if (formSection.style.display === 'none') {
+    bookSection.style.display = 'flex';
+  } else {
+    formSection.style.display = 'none';
+    contactSection.style.display = 'none';
+  }
+});
+
+addButton.addEventListener('click', () => {
+  if (bookSection.style.display === 'none') {
+    formSection.style.display = 'flex';
+  } else {
+    bookSection.style.display = 'none';
+    contactSection.style.display = 'none';
+  }
+});
+contactButton.addEventListener('click', () => {
+  if (formSection.style.display === 'none') {
+    contactSection.style.display = 'flex';
+  } else {
+    formSection.style.display = 'none';
+    bookSection.style.display = 'none';
+  }
+});
